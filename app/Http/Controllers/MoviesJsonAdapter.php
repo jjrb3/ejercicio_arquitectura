@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\UseCases\GetMoviesUsecase;
 use App\UseCases\Interfaces\GetMoviesUsecaseInterface;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\View\View;
+use Illuminate\Http\JsonResponse;
 
 /**
  * Class MoviesAdapter
  * @package App\Http\Controllers
  */
-class MoviesAdapter extends Controller
+class MoviesJsonAdapter extends Controller
 {
     /**
      * @var GetMoviesUsecaseInterface
@@ -28,12 +27,12 @@ class MoviesAdapter extends Controller
     }
 
     /**
-     * @return Factory|View
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function __invoke()
+    public function __invoke(): JsonResponse
     {
-        return view('home', [
-            'movies' => $this->getMoviesUsecase->handle(GetMoviesUsecase::TYPE_DB)
+        return response()->json([
+            'movies' => $this->getMoviesUsecase->handle(GetMoviesUsecase::TYPE_API_JSON)
         ]);
     }
 }

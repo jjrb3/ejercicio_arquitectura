@@ -9,7 +9,8 @@ namespace App\UseCases\Interfaces;
 interface GetMoviesUsecaseInterface
 {
     /**
+     * @param  string  $type
      * @return iterable|null
      */
-    public function handle(): ?iterable;
+    public function handle(string $type);
 }
