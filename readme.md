@@ -4,8 +4,6 @@ Eligiendo una de las estrategias descritas anteriormente (Clean, Capas, Hexagona
  de una pagina que debe mostrar reseñas de películas.
 
 
-adlkajsdjas 
-
 ```
 Requisitos:
 - Equipos maximo de 3 personas.
