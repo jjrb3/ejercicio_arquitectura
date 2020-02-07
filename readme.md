@@ -3,15 +3,35 @@
 Eligiendo una de las estrategias descritas anteriormente (Clean, Capas, Hexagonal, DDD) elaborar el landing page
  de una pagina que debe mostrar reseñas de películas.
 
+``
+Jeremy Reyes, 
+Guillermo Romo y
+Maria Camila Guerrero
+``
+## Arquitectura seleccionada 
 
-```
-Requisitos:
-- Equipos maximo de 3 personas.
-- Deben hacer fork a este repositorio.
-- Deben incluir en el md la descripción y justificación de las decisiones de arquitectura que tomaron junto a la lista de los integrantes.
-- La fuente de datos debe ser derivada del dump adjunto en este repositorio.
-- El front debe ser simple (No se va a tomar en cuenta el diseño mas allá de que sea legible).
-- Tiempo límite: 3 horas.
-- PHP, con libertad de elección del framework.
-- Deben simplificar su diseño de tal forma que pueda ser realizado en el tiempo estipulado.
-```
+**Arquitectura Hexagonal**
+![Referencia Arquitectura](https://miro.medium.com/max/1718/1*yR4C1B-YfMh5zqpbHzTyag.png)
+
+Se escogió esta arquitectura ya que propone que la lógica sea independiente totalmente de la interfaz de usuario, de la base de datos o servicios externos , y de esta manera es más tolerante al cambio. Hace nuestra aplicación mantenible y aplica principios SOLID en la codificación.
+
+Es inherente al framework utilizado, sin embargo a a la hora de hacer el ejercicio, se hizo una paralelo con las herramientas que ofrece Laravel :
+
+- Controllers *Adaptadores* 
+
+    MoviesAdapter
+    
+- UseCases *Aplicación*
+
+    GetMoviesUseCase
+    
+    GetMoviesUseCaseInterface _Puerto_
+    
+- Services *Dominio*
+
+    Movie (Modelo)
+    
+    EloquenMovieRepository (Repositorio)
+    
+    EloquentMovieRepositoryInterface _Puerto_
+
